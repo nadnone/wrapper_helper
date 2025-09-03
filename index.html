@@ -40,7 +40,6 @@
             const rslt = document.querySelector("#result");
             const elements = document.querySelectorAll("input");
 
-            const MARGIN = 4; // cm
             const dx = elements[0].value;
             const dy = elements[1].value;
             const dz = elements[2].value;
@@ -48,7 +47,10 @@
 
             const facesAirs = (2 * dz * dy) + (4 * dx * dy) + (2 * dx * dz);
 
-            const pneeded = ((facesAirs / pwidth) + MARGIN).toFixed(2)
+            //4% of margin added 
+            const margin = (facesAirs / pwidth) * 4 / 100
+
+            const pneeded = ((facesAirs / pwidth) + margin ).toFixed(2)
 
             if (!isNaN(pneeded) || pneeded == Infinity || pneeded == undefined)
             {
