@@ -46,7 +46,7 @@
             const dz = elements[2].value;
             const pwidth = elements[3].value;
 
-            const facesAirs = (2 * dz * dy) + (2 * dx * dy) + (2 * dx * dz);
+            const facesAirs = (2 * dz * dy) + (4 * dx * dy) + (2 * dx * dz);
 
             const pneeded = ((facesAirs / pwidth) + MARGIN).toFixed(2)
 
