@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Wrapper Helper</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div>
+            Width [cm] :
+            <input type="number" name="dx" placeholder="X [width] (cm)">
+        </div>
+        <div>
+            Height [cm] :
+            <input type="number" name="dy" placeholder="Y [height] (cm)">
+        </div>
+        <div>
+            Length [cm] :
+            <input type="number" name="dz" placeholder="Z [length] (cm)">
+        </div>
+        <div>
+            Paper Width [cm] :
+            <input type="number" name="pwidth" placeholder="Paper width (cm)">
+        </div>
+
+        <button onclick="calc()">Calcul</button>
+
+        <span id="result"></span>
+    </div>
+
+
+    <script>
+
+        function calc() {
+
+            const rslt = document.querySelector("#result");
+            const elements = document.querySelectorAll("input");
+
+            const dx = elements[0].value;
+            const dy = elements[1].value;
+            const dz = elements[2].value;
+            const pwidth = elements[3].value;
+
+            const facesAirs = (2 * dz * dy) + (2 * dx * dy) + (2 * dx * dz);
+
+            const pneeded = (facesAirs / pwidth).toFixed(2)
+
+            if (!isNaN(pneeded) || pneeded == Infinity || pneeded == undefined)
+            {
+                rslt.innerText = `You will need ${pneeded} cm of ${pwidth} cm psaper.
+                Or ${(pneeded / 100).toFixed(2)} meters of ${pwidth} cm paper`
+            }
+        }
+    </script>
+
+</body>
+</html>

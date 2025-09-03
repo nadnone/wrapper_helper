@@ -1,0 +1,39 @@
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.container span {
+    padding: 8pt;
+}
+
+.container div {
+    display: flex;
+    justify-content: space-between;
+    padding: 4pt;
+    width: 50%;
+}
+
+body {
+    background-color: bisque;
+}
+
+button {
+    width: 120px;
+    height: 60px;
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    font-size: 18pt;
+    border-radius: 5pt;
+}
+button:active {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.container input {
+    width: 50%;
+    height: 60px;
+}
