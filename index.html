@@ -40,6 +40,7 @@
             const rslt = document.querySelector("#result");
             const elements = document.querySelectorAll("input");
 
+            const MARGIN = 4; // cm
             const dx = elements[0].value;
             const dy = elements[1].value;
             const dz = elements[2].value;
@@ -47,11 +48,11 @@
 
             const facesAirs = (2 * dz * dy) + (2 * dx * dy) + (2 * dx * dz);
 
-            const pneeded = (facesAirs / pwidth).toFixed(2)
+            const pneeded = ((facesAirs / pwidth) + MARGIN).toFixed(2)
 
             if (!isNaN(pneeded) || pneeded == Infinity || pneeded == undefined)
             {
-                rslt.innerText = `You will need ${pneeded} cm of ${pwidth} cm psaper.
+                rslt.innerText = `You will need ${pneeded} cm of ${pwidth} cm paper.
                 Or ${(pneeded / 100).toFixed(2)} meters of ${pwidth} cm paper`
             }
         }
