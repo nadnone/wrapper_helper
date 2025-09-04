@@ -30,6 +30,8 @@
         <button onclick="calc()">Calcul</button>
 
         <span id="result"></span>
+
+        V 1.0.4
     </div>
 
 
@@ -45,14 +47,12 @@
             const dz = elements[2].value;
             const pwidth = elements[3].value;
 
-            const facesAirs = (2 * dz * dy) + (4 * dx * dy) + (2 * dx * dz);
+            // each 2 times a face to have all the 6 faces, and add 1 face (half a face for each sides) to have enough margin for the folds
+            const facesAirs = (2 * dz * dy) + (3 * dx * dy) + (2 * dx * dz);
 
-            //4% of margin added 
-            const margin = (facesAirs / pwidth) * 4 / 100
+            const pneeded = ((facesAirs / pwidth)).toFixed(2)
 
-            const pneeded = ((facesAirs / pwidth) + margin ).toFixed(2)
-
-            if (!isNaN(pneeded) || pneeded == Infinity || pneeded == undefined)
+            if (!(isNaN(pneeded) || pneeded == Infinity || pneeded == undefined))
             {
                 rslt.innerText = `You will need ${pneeded} cm of ${pwidth} cm paper.
                 Or ${(pneeded / 100).toFixed(2)} meters of ${pwidth} cm paper`
